@@ -11,12 +11,13 @@ const decks = [
   { key: 5, name: 'Test 5', cards: 5 },
 ];
 
-function DeckList() {
+function DeckList({ navigation }) {
   return (
     <View>
       <FlatList
         data={decks}
-        renderItem={({ item }) => <DeckListItem {...item} />}
+        renderItem={({ item }) => (
+          <DeckListItem deck={item} navigation={navigation} />)}
       />
     </View>
   );

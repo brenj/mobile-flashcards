@@ -1,15 +1,15 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-function DeckListItem({ name, cards }) {
+function DeckListItem({ deck, navigation }) {
 
   return (
-    <View style={{ flex: 1 }}>
-      <TouchableOpacity>
-        <Text>{name}</Text>
-        <Text>{`${cards} cards`}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('DeckDetails', deck)}
+    >
+      <Text>{deck.name}</Text>
+      <Text>{`${deck.cards} cards`}</Text>
+    </TouchableOpacity>
   );
 }
 
