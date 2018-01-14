@@ -1,26 +1,34 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
+import { connect } from 'react-redux';
 
+import { receiveDecks } from '../action';
 import DeckListItem from './DeckListItem';
+import { getDecks } from '../util/api';
 
-const decks = [
-  { key: 1, name: 'Test 1', cards: 5 },
-  { key: 2, name: 'Test 2', cards: 5 },
-  { key: 3, name: 'Test 3', cards: 5 },
-  { key: 4, name: 'Test 4', cards: 5 },
-  { key: 5, name: 'Test 5', cards: 5 },
-];
+class DeckList extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(receiveDecks(getDecks()));
+  }
 
-function DeckList({ navigation }) {
-  return (
-    <View>
-      <FlatList
-        data={decks}
-        renderItem={({ item }) => (
-          <DeckListItem deck={item} navigation={navigation} />)}
-      />
-    </View>
-  );
+  render() {
+    const { decks, navigation } = this.props;
+
+    return (
+      <View>
+        <FlatList
+          data={decks}
+          renderItem={({ item }) => (
+            <DeckListItem deck={item} navigation={navigation} />)}
+        />
+      </View>
+    );
+  }
 }
 
-export default DeckList;
+const mapStateToProps = (state) => {
+  const decks = Object.keys(state).map(id => state[id]);
+  return { decks };
+};
+
+export default connect(mapStateToProps)(DeckList);
