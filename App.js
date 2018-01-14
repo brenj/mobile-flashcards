@@ -13,6 +13,7 @@ const DeckNavigator = TabNavigator({
   DeckList: {
     navigationOptions: {
       tabBarIcon: () => <FontAwesome name="archive" size={30} />,
+      tabBarLabel: 'Decks',
     },
     screen: DeckList,
   },
