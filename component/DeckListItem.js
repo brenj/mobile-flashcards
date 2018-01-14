@@ -8,7 +8,7 @@ function DeckListItem({ deck, navigation }) {
       onPress={() => navigation.navigate('DeckDetails', deck)}
     >
       <Text>{deck.name}</Text>
-      <Text>{`${deck.cards} cards`}</Text>
+      <Text>{`${deck.cardCount} cards`}</Text>
     </TouchableOpacity>
   );
 }

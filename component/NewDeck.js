@@ -1,12 +1,49 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {
+  Text,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView } from 'react-native';
+import { connect } from 'react-redux';
 
-function NewDeck() {
-  return (
-    <View>
-      <Text>New deck!</Text>
-    </View>
-  );
+import { addDeck } from '../action';
+
+class NewDeck extends React.Component {
+
+  state = { title: '' };
+
+  handleTextChange = (text) => {
+    this.setState({ title: text });
+  }
+
+  handleSubmit = () => {
+    const { dispatch, navigation } = this.props;
+    const newDeck = {
+      50: {key: 50, name: this.state.title, cardCount: 0},
+    };
+
+    // save to asynchronous storage
+    dispatch(addDeck(newDeck));
+
+    // Reset NewDeck UI
+    this.setState({ title: '' });
+    navigation.goBack()
+  }
+
+  render() {
+    return (
+      <KeyboardAvoidingView behavior='padding'>
+        <Text>What is the title of your new deck?</Text>
+        <TextInput
+          value={this.state.title}
+          onChangeText={this.handleTextChange}
+        />
+        <TouchableOpacity onPress={this.handleSubmit}>
+          <Text>Submit</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+    );
+  }
 }
 
-export default NewDeck;
+export default connect()(NewDeck);
