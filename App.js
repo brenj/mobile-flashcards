@@ -1,13 +1,48 @@
+import { FontAwesome } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+
+import AppStatusBar from './component/AppStatusBar';
+import DeckDetails from './component/DeckDetails';
+import DeckList from './component/DeckList';
+import NewDeck from './component/NewDeck';
+
+const DeckNavigator = TabNavigator({
+  DeckList: {
+    navigationOptions: {
+      tabBarIcon: () => <FontAwesome name="archive" size={30} />,
+    },
+    screen: DeckList,
+  },
+  NewDeck: {
+    navigationOptions: {
+      tabBarIcon: () => <FontAwesome name="plus-square-o" size={30} />,
+      tabBarLabel: 'New',
+    },
+    screen: NewDeck,
+  },
+}, {
+  navigationOptions: {
+    header: null,
+  },
+});
+
+const AppNavigator = StackNavigator({
+  Home: {
+    screen: DeckNavigator,
+  },
+  DeckDetail: {
+    screen: DeckDetails,
+  },
+});
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <View style={{ flex: 1 }}>
+        <AppStatusBar />
+        <AppNavigator />
       </View>
     );
   }
