@@ -2,6 +2,9 @@ import { FontAwesome } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { createStore  } from 'redux';
+import { Provider  } from 'react-redux';
+import reducer from './reducer';
 
 import AppStatusBar from './component/AppStatusBar';
 import DeckDetails from './component/DeckDetails';
@@ -49,10 +52,12 @@ const AppNavigator = StackNavigator({
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <AppStatusBar />
-        <AppNavigator />
-      </View>
+      <Provider store={createStore(reducer)}>
+        <View style={{ flex: 1 }}>
+          <AppStatusBar />
+          <AppNavigator />
+        </View>
+      </Provider>
     );
   }
 }
