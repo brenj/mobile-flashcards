@@ -1,4 +1,4 @@
-import { RECEIVE_DECKS, ADD_DECK } from '../action';
+import { RECEIVE_DECKS, ADD_DECK, ADD_CARD_TO_DECK } from '../action';
 
 function decksReducer(state = {}, action) {
   switch (action.type) {
@@ -12,6 +12,17 @@ function decksReducer(state = {}, action) {
         ...state,
         ...action.deck,
       };
+    case ADD_CARD_TO_DECK: {
+      const { title, card } = action;
+      return {
+        ...state,
+        [title]: {
+          ...state[title],
+          cards: [...state[title].cards, card],
+          cardCount: state[title].cardCount + 1,
+        },
+      };
+    }
     default:
       return state;
   }
