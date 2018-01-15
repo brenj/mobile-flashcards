@@ -21,15 +21,17 @@ class NewDeck extends React.Component {
     const { dispatch, navigation } = this.props;
     const { title } = this.state;
 
+    const newDeck = {
+      [title]: { key: title, title, cards: [], cardCount: 0 }};
+
     saveDeckTitle(title).then(() => {
-      const newDeck = {
-        [title]: { key: title, title, cards: [], cardCount: 0 }};
       dispatch(addDeck(newDeck));
     });
 
+    navigation.navigate('DeckDetails', newDeck[title]);
+
     // Reset NewDeck UI
     this.setState({ title: '' });
-    navigation.goBack()
   }
 
   render() {
