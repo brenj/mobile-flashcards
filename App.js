@@ -43,7 +43,7 @@ const AppNavigator = StackNavigator({
       headerStyle: {
         backgroundColor: blue,
       },
-      title: 'Decks'
+      title: 'Details'
     },
     screen: DeckDetails,
   },
