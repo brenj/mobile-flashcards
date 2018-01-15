@@ -8,7 +8,9 @@ import { getDecks } from '../util/api';
 
 class DeckList extends React.Component {
   componentDidMount() {
-    this.props.dispatch(receiveDecks(getDecks()));
+    getDecks().then(decks => (
+      this.props.dispatch(receiveDecks(JSON.parse(decks))))
+    );
   }
 
   render() {
