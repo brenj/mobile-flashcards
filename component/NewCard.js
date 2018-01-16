@@ -2,7 +2,8 @@ import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 
-import { addCardToDeck } from '../action';
+import { addCard } from '../action';
+import { addCardToDeck } from '../util/api';
 
 class NewCard extends React.Component {
   state = { question: '', answer: '' };
@@ -20,10 +21,10 @@ class NewCard extends React.Component {
     const { question, answer } = this.state;
     const { title } = navigation.state.params;
 
-    dispatch(addCardToDeck(title, { question, answer }));
-    // saveDeckTitle(title).then(() => {
-    //   dispatch(addDeck(newDeck));
-    // });
+    const newCard = { question, answer };
+    addCardToDeck(title, newCard).then(() => {
+      dispatch(addCard(title, newCard));
+    });
 
     navigation.goBack();
 
