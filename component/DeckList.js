@@ -29,7 +29,7 @@ class DeckList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const decks = Object.keys(state).map(id => state[id]);
+  const decks = Object.keys(state.decks).map(id => state.decks[id]);
   return { decks };
 };
 

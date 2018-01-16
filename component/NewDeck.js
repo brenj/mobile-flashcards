@@ -10,7 +10,6 @@ import { addDeck } from '../action';
 import { saveDeckTitle } from '../util/api';
 
 class NewDeck extends React.Component {
-
   state = { title: '' };
 
   handleTextChange = (text) => {
