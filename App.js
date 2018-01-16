@@ -1,9 +1,9 @@
 import { FontAwesome } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { createStore  } from 'redux';
-import { Provider  } from 'react-redux';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import reducer from './reducer';
 
 import AppStatusBar from './component/AppStatusBar';
@@ -11,6 +11,7 @@ import DeckDetails from './component/DeckDetails';
 import DeckList from './component/DeckList';
 import NewDeck from './component/NewDeck';
 import NewCard from './component/NewCard';
+import Quiz from './component/Quiz';
 import { blue, white } from './util/colors';
 
 const DeckNavigator = TabNavigator({
@@ -57,6 +58,16 @@ const AppNavigator = StackNavigator({
       title: 'New card'
     },
     screen: NewCard,
+  },
+  Quiz: {
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: blue,
+      },
+      title: 'Quiz'
+    },
+    screen: Quiz,
   },
 });
 
