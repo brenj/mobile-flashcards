@@ -6,6 +6,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
 
+import Answer from './component/Answer';
 import AppStatusBar from './component/AppStatusBar';
 import DeckDetails from './component/DeckDetails';
 import DeckList from './component/DeckList';
@@ -68,6 +69,16 @@ const AppNavigator = StackNavigator({
       title: 'Quiz'
     },
     screen: Quiz,
+  },
+  Answer: {
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: blue,
+      },
+      title: 'Answer'
+    },
+    screen: Answer,
   },
 });
 

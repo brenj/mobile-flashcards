@@ -28,7 +28,11 @@ class Quiz extends React.Component {
       <View behavior="padding">
         <Text>{currentCardNumber}/{deck.cards.length}</Text>
         <Text>{card.question}</Text>
-        <TouchableOpacity onPress={() => console.log("Show answer clicked")}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate('Answer', { answer: card.answer });
+          }}
+        >
           <Text>Show answer</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => dispatch(recordQuizResult(1))}>
