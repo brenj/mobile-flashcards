@@ -8,6 +8,7 @@ import reducer from './reducer';
 
 import Answer from './component/Answer';
 import AppStatusBar from './component/AppStatusBar';
+import Credits from './component/Credits';
 import DeckDetails from './component/DeckDetails';
 import DeckList from './component/DeckList';
 import NewDeck from './component/NewDeck';
@@ -83,6 +84,12 @@ const AppNavigator = StackNavigator({
       title: 'Answer'
     },
     screen: Answer,
+  },
+  Credits: {
+    navigationOptions: {
+      title: 'Credits'
+    },
+    screen: Credits,
   },
 });
 
