@@ -13,6 +13,7 @@ import DeckList from './component/DeckList';
 import NewDeck from './component/NewDeck';
 import NewCard from './component/NewCard';
 import Quiz from './component/Quiz';
+import Splash from './component/Splash';
 import { blue, white } from './util/colors';
 
 const DeckNavigator = TabNavigator({
@@ -38,6 +39,9 @@ const DeckNavigator = TabNavigator({
 
 const AppNavigator = StackNavigator({
   Home: {
+    screen: Splash,
+  },
+  DeckNavigator: {
     screen: DeckNavigator,
   },
   DeckDetails: {
