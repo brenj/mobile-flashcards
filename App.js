@@ -16,6 +16,7 @@ import NewCard from './component/NewCard';
 import Quiz from './component/Quiz';
 import Splash from './component/Splash';
 import { blue, white } from './util/colors';
+import { setNotification } from './util/notifications';
 
 const DeckNavigator = TabNavigator({
   DeckList: {
@@ -94,6 +95,10 @@ const AppNavigator = StackNavigator({
 });
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setNotification();
+  }
+
   render() {
     return (
       <Provider store={createStore(reducer)}>
