@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 
+import AppStatusBar from './AppStatusBar';
 import { receiveDecks } from '../action';
 import DeckListItem from './DeckListItem';
 import { getDecks } from '../util/api';
@@ -18,6 +19,7 @@ class DeckList extends React.Component {
 
     return (
       <View>
+        <AppStatusBar />
         <FlatList
           data={decks}
           renderItem={({ item }) => (

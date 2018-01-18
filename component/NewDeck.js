@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 
 import { addDeck } from '../action';
+import AppStatusBar from './AppStatusBar';
 import { saveDeckTitle } from '../util/api';
 
 class NewDeck extends React.Component {
@@ -36,6 +37,7 @@ class NewDeck extends React.Component {
   render() {
     return (
       <KeyboardAvoidingView behavior='padding'>
+        <AppStatusBar />
         <Text>What is the title of your new deck?</Text>
         <TextInput
           value={this.state.title}
