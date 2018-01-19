@@ -23,16 +23,19 @@ function DeckDetails(props) {
       >
         <Text>Add Card</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          // Reset notification since a quiz was started
-          clearNotification().then(setNotification);
-          navigation.navigate('Quiz', { title });
-        }}
-        style={globalStyles.secondaryButton}
-      >
-        <Text>Start Quiz</Text>
-      </TouchableOpacity>
+      {
+        cardCount !== 0 &&
+          <TouchableOpacity
+            onPress={() => {
+              // Reset notification since a quiz was started
+              clearNotification().then(setNotification);
+              navigation.navigate('Quiz', { title });
+            }}
+            style={globalStyles.secondaryButton}
+          >
+            <Text>Start Quiz</Text>
+          </TouchableOpacity>
+      }
     </View>
   );
 }
