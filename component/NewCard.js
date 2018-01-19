@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Alert,
@@ -10,6 +11,13 @@ import { connect } from 'react-redux';
 import { addCard } from '../action';
 import { addCardToDeck } from '../util/api';
 import globalStyles from '../util/styles';
+
+const propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 class NewCard extends React.Component {
   state = { question: '', answer: '' };
@@ -30,7 +38,8 @@ class NewCard extends React.Component {
     if (!question || !answer) {
       Alert.alert(
         'Required data missing',
-        'Please provide a question and answer before submitting.');
+        'Please provide a question and answer before submitting.',
+      );
       return;
     }
 
@@ -70,5 +79,7 @@ class NewCard extends React.Component {
     );
   }
 }
+
+NewCard.propTypes = propTypes;
 
 export default connect()(NewCard);

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
@@ -30,69 +31,87 @@ const styles = StyleSheet.create({
   },
 });
 
-class Quiz extends React.Component {
-  render() {
-    const { currentCardIndex, correctAnswers, deck, dispatch } = this.props;
-    const currentCardNumber = currentCardIndex + 1;
+const propTypes = {
+  currentCardIndex: PropTypes.number.isRequired,
+  correctAnswers: PropTypes.number.isRequired,
+  deck: PropTypes.shape({
+    cardCount: PropTypes.number.isRequired,
+    cards: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
-    // Have all the questions been answered?
-    if (currentCardNumber > deck.cardCount) {
-      return (
-        <View
-          behavior="padding"
-          style={globalStyles.centeredContainer}
-        >
-          <Text style={globalStyles.mediumText}>Quiz complete</Text>
-          <Text
-            style={styles.questionText}
-          >
-            {`${correctAnswers} out of ${deck.cardCount} answered correctly`}
-          </Text>
-          <TouchableOpacity
-            onPress={() => dispatch(resetQuizResults())}
-            style={globalStyles.primaryButton}
-          >
-            <Text>Restart quiz</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    }
+function Quiz(props) {
+  const {
+    currentCardIndex,
+    correctAnswers,
+    deck,
+    dispatch,
+  } = props;
+  const currentCardNumber = currentCardIndex + 1;
 
-    const card = deck.cards[currentCardIndex];
-
+  // Have all the questions been answered?
+  if (currentCardNumber > deck.cardCount) {
     return (
       <View
         behavior="padding"
         style={globalStyles.centeredContainer}
       >
-        <Text style={globalStyles.mediumText}>
-          Question {currentCardNumber} of {deck.cards.length}
+        <Text style={globalStyles.mediumText}>Quiz complete</Text>
+        <Text
+          style={styles.questionText}
+        >
+          {`${correctAnswers} out of ${deck.cardCount} answered correctly`}
         </Text>
-        <Text style={styles.questionText}>{card.question}</Text>
         <TouchableOpacity
+          onPress={() => dispatch(resetQuizResults())}
           style={globalStyles.primaryButton}
-          onPress={() => {
-            this.props.navigation.navigate('Answer', { answer: card.answer });
-          }}
         >
-          <Text>Show answer</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.correctButton}
-          onPress={() => dispatch(recordQuizResult(1))}
-        >
-          <Text>Correct</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.incorrectButton}
-          onPress={() => dispatch(recordQuizResult(0))}
-        >
-          <Text>Incorrect</Text>
+          <Text>Restart quiz</Text>
         </TouchableOpacity>
       </View>
     );
   }
+
+  const card = deck.cards[currentCardIndex];
+
+  return (
+    <View
+      behavior="padding"
+      style={globalStyles.centeredContainer}
+    >
+      <Text style={globalStyles.mediumText}>
+        Question {currentCardNumber} of {deck.cards.length}
+      </Text>
+      <Text style={styles.questionText}>{card.question}</Text>
+      <TouchableOpacity
+        style={globalStyles.primaryButton}
+        onPress={() => {
+          props.navigation.navigate('Answer', { answer: card.answer });
+        }}
+      >
+        <Text>Show answer</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.correctButton}
+        onPress={() => dispatch(recordQuizResult(1))}
+      >
+        <Text>Correct</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.incorrectButton}
+        onPress={() => dispatch(recordQuizResult(0))}
+      >
+        <Text>Incorrect</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
+
+Quiz.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => {
   const deck = state.decks[ownProps.navigation.state.params.title];

@@ -1,33 +1,41 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { Animated, Image, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Image, Text, TouchableOpacity } from 'react-native';
 
 import globalStyles from '../util/styles';
+
+const LOGO_FILE = require('../image/logo.png');
+
+const propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 class Splash extends React.Component {
   state = { fade: new Animated.Value(0) };
 
   componentDidMount() {
-    Animated.timing(
-      this.state.fade, { toValue: 1, duration: 5000 }).start();
+    Animated.timing(this.state.fade, { toValue: 1, duration: 5000 }).start();
   }
 
   render() {
     const { navigation } = this.props;
-    let { fade } = this.state;
+    const { fade } = this.state;
 
     return (
       <Animated.View
         style={[globalStyles.centeredContainer, { opacity: fade }]}
       >
-        <Image source={require('../image/logo.png')} />
+        <Image source={LOGO_FILE} />
         <Text
-          style={[globalStyles.largeText, { paddingBottom: 50 } ]}
+          style={[globalStyles.largeText, { paddingBottom: 50 }]}
         >
           Mobile Flashcards
         </Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('DeckNavigator')
+            navigation.navigate('DeckNavigator');
           }}
           style={globalStyles.primaryButton}
         >
@@ -43,5 +51,7 @@ class Splash extends React.Component {
     );
   }
 }
+
+Splash.propTypes = propTypes;
 
 export default Splash;

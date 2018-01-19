@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Alert,
   KeyboardAvoidingView,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity } from 'react-native';
@@ -12,6 +12,13 @@ import { addDeck } from '../action';
 import AppStatusBar from './AppStatusBar';
 import { saveDeckTitle } from '../util/api';
 import globalStyles from '../util/styles';
+
+const propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 class NewDeck extends React.Component {
   state = { title: '' };
@@ -27,12 +34,16 @@ class NewDeck extends React.Component {
     if (!title) {
       Alert.alert(
         'Required data missing',
-        'Please provide a deck title before submitting.');
+        'Please provide a deck title before submitting.',
+      );
       return;
     }
 
     const newDeck = {
-      [title]: { key: title, title, cards: [], cardCount: 0 }};
+      [title]: {
+        key: title, title, cards: [], cardCount: 0,
+      },
+    };
 
     saveDeckTitle(title).then(() => {
       dispatch(addDeck(newDeck));
@@ -47,7 +58,7 @@ class NewDeck extends React.Component {
   render() {
     return (
       <KeyboardAvoidingView
-        behavior='padding'
+        behavior="padding"
         style={globalStyles.centeredContainer}
       >
         <AppStatusBar />
@@ -71,5 +82,7 @@ class NewDeck extends React.Component {
     );
   }
 }
+
+NewDeck.propTypes = propTypes;
 
 export default connect()(NewDeck);

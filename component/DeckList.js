@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
@@ -7,11 +8,18 @@ import { receiveDecks } from '../action';
 import DeckListItem from './DeckListItem';
 import { getDecks } from '../util/api';
 
+const propTypes = {
+  decks: PropTypes.arrayOf(PropTypes.object).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
 class DeckList extends React.Component {
   componentDidMount() {
     getDecks().then(decks => (
-      this.props.dispatch(receiveDecks(JSON.parse(decks))))
-    );
+      this.props.dispatch(receiveDecks(JSON.parse(decks)))));
   }
 
   render() {
@@ -29,6 +37,8 @@ class DeckList extends React.Component {
     );
   }
 }
+
+DeckList.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   const decks = Object.keys(state.decks).map(id => state.decks[id]);

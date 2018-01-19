@@ -25,8 +25,7 @@ export function setNotification() {
               time.setHours(20);
               time.setMinutes(0);
 
-              Notifications.scheduleLocalNotificationAsync(
-                getNotificationConfig(), { time, repeat: 'day' });
+              Notifications.scheduleLocalNotificationAsync(getNotificationConfig(), { time, repeat: 'day' });
 
               AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
             }

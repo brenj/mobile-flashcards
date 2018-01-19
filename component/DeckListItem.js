@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -16,6 +17,16 @@ const styles = StyleSheet.create({
   },
 });
 
+const propTypes = {
+  deck: PropTypes.shape({
+    cardCount: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
 function DeckListItem({ deck, navigation }) {
   return (
     <View style={styles.listItem}>
@@ -29,5 +40,7 @@ function DeckListItem({ deck, navigation }) {
     </View>
   );
 }
+
+DeckListItem.propTypes = propTypes;
 
 export default DeckListItem;

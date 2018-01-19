@@ -8,9 +8,10 @@ export function getDecks() {
 
 export function saveDeckTitle(title) {
   // AsyncStorage.removeItem(STORAGE_KEY);
-  const deck = { key: title, title, cardCount: 0, cards: [] };
-  return AsyncStorage.mergeItem(
-    STORAGE_KEY, JSON.stringify({ [title]: deck }));
+  const deck = {
+    key: title, title, cardCount: 0, cards: [],
+  };
+  return AsyncStorage.mergeItem(STORAGE_KEY, JSON.stringify({ [title]: deck }));
 }
 
 export function addCardToDeck(title, card) {
@@ -22,6 +23,7 @@ export function addCardToDeck(title, card) {
 
     return AsyncStorage.mergeItem(
       STORAGE_KEY,
-      JSON.stringify({ [title]: { cards, cardCount: cardCount + 1 } }));
+      JSON.stringify({ [title]: { cards, cardCount: cardCount + 1 } }),
+    );
   });
 }
