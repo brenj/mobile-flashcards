@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Alert,
   KeyboardAvoidingView,
   StyleSheet,
   Text,
@@ -22,6 +23,13 @@ class NewDeck extends React.Component {
   handleSubmit = () => {
     const { dispatch, navigation } = this.props;
     const { title } = this.state;
+
+    if (!title) {
+      Alert.alert(
+        'Required data missing',
+        'Please provide a deck title before submitting.');
+      return;
+    }
 
     const newDeck = {
       [title]: { key: title, title, cards: [], cardCount: 0 }};
