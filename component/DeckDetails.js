@@ -7,7 +7,7 @@ import globalStyles from '../util/styles';
 
 function DeckDetails(props) {
   const { navigation } = props;
-  const { title, cardCount } = props.deck;
+  const { title, cardCount } = props.deck || {};
 
   return (
     <View style={globalStyles.centeredContainer}>

@@ -38,7 +38,7 @@ class NewDeck extends React.Component {
       dispatch(addDeck(newDeck));
     });
 
-    navigation.navigate('DeckDetails', newDeck[title]);
+    navigation.navigate('DeckDetails', { title });
 
     // Reset NewDeck UI
     this.setState({ title: '' });
