@@ -7,12 +7,11 @@ const styles = StyleSheet.create({
   listItem: {
     alignItems: 'stretch',
     flex: 1,
-    padding: 2,
+    padding: 5,
   },
   listItemText: {
     backgroundColor: gray,
     fontSize: 20,
-    padding: 2,
     textAlign: 'center',
   },
 });
