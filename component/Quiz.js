@@ -60,15 +60,23 @@ function Quiz(props) {
         behavior="padding"
         style={globalStyles.centeredContainer}
       >
-        <Text style={globalStyles.mediumText}>Quiz complete</Text>
+        <Text style={globalStyles.largeText}>Quiz complete</Text>
         <Text
           style={styles.questionText}
         >
           {`${correctAnswers} out of ${deck.cardCount} answered correctly`}
         </Text>
         <TouchableOpacity
-          onPress={() => dispatch(resetQuizResults())}
+          onPress={() => {
+            props.navigation.navigate('DeckDetails', { title: deck.title });
+          }}
           style={globalStyles.primaryButton}
+        >
+          <Text>Deck details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => dispatch(resetQuizResults())}
+          style={globalStyles.secondaryButton}
         >
           <Text>Restart quiz</Text>
         </TouchableOpacity>
