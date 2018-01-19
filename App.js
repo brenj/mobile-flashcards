@@ -21,7 +21,9 @@ const DeckNavigator = TabNavigator({
   DeckList: {
     navigationOptions: {
       header: null,
-      tabBarIcon: () => <FontAwesome name="archive" size={30} />,
+      tabBarIcon: () => (
+        <FontAwesome style={{ paddingTop: 15 }} name="archive" size={30} />
+      ),
       tabBarLabel: 'Decks',
     },
     screen: DeckList,
@@ -29,23 +31,35 @@ const DeckNavigator = TabNavigator({
   NewDeck: {
     navigationOptions: {
       header: null,
-      tabBarIcon: () => <FontAwesome name="plus-square" size={30} />,
+      tabBarIcon: () => (
+        <FontAwesome
+          style={{ paddingTop: 15 }}
+          name="plus-square"
+          size={30}
+        />
+      ),
       tabBarLabel: 'New',
     },
     screen: NewDeck,
   },
 }, {
   tabBarOptions: {
+    activeTintColor: 'white',
+    inactiveTintColor: 'white',
+    labelStyle: {
+      fontSize: 15,
+      paddingTop: 5,
+    },
     style: {
       backgroundColor: crimson,
-    }
-  }
+    },
+  },
 });
 
 const AppNavigator = StackNavigator({
   Home: {
     navigationOptions: {
-      header: null, 
+      header: null,
     },
     screen: Splash,
   },
@@ -87,6 +101,7 @@ const AppNavigator = StackNavigator({
     headerStyle: {
       backgroundColor: crimson,
     },
+    headerTintColor: 'white',
   },
 });
 
