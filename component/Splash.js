@@ -1,7 +1,7 @@
 import React from 'react';
-import { Animated, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Image, Text, TouchableOpacity, View } from 'react-native';
 
-import { globalStyles } from '../util/styles';
+import globalStyles from '../util/styles';
 
 class Splash extends React.Component {
   state = { fade: new Animated.Value(0) };
@@ -20,18 +20,22 @@ class Splash extends React.Component {
         style={[globalStyles.centeredContainer, { opacity: fade }]}
       >
         <Image source={require('../image/logo.png')} />
-        <Text style={styles.splashText}>Mobile Flashcards</Text>
+        <Text
+          style={[globalStyles.largeText, { paddingBottom: 50 } ]}
+        >
+          Mobile Flashcards
+        </Text>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('DeckNavigator')
           }}
-          style={styles.startButton}
+          style={globalStyles.primaryButton}
         >
           <Text>Start</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('Credits')}
-          style={styles.creditsButton}
+          style={globalStyles.secondaryButton}
         >
           <Text>Credits</Text>
         </TouchableOpacity>
@@ -39,28 +43,5 @@ class Splash extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  splashText: {
-    fontSize: 30,
-    padding: 10,
-    paddingBottom: 50,
-  },
-  startButton: {
-    alignItems: 'center',
-    backgroundColor: '#c0c0c0',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 15,
-    width: 150,
-  },
-  creditsButton: {
-    alignItems: 'center',
-    backgroundColor: '#ffe34c',
-    borderRadius: 10,
-    padding: 10,
-    width: 150,
-  },
-});
 
 export default Splash;

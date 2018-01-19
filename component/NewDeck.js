@@ -1,14 +1,16 @@
 import React from 'react';
 import {
+  KeyboardAvoidingView,
+  StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
-  KeyboardAvoidingView } from 'react-native';
+  TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 import { addDeck } from '../action';
 import AppStatusBar from './AppStatusBar';
 import { saveDeckTitle } from '../util/api';
+import globalStyles from '../util/styles';
 
 class NewDeck extends React.Component {
   state = { title: '' };
@@ -36,14 +38,25 @@ class NewDeck extends React.Component {
 
   render() {
     return (
-      <KeyboardAvoidingView behavior='padding'>
+      <KeyboardAvoidingView
+        behavior='padding'
+        style={globalStyles.centeredContainer}
+      >
         <AppStatusBar />
-        <Text>What is the title of your new deck?</Text>
+        <Text
+          style={globalStyles.mediumText}
+        >
+          What is the title of your new deck?
+        </Text>
         <TextInput
+          style={globalStyles.textInput}
           value={this.state.title}
           onChangeText={this.handleTextChange}
         />
-        <TouchableOpacity onPress={this.handleSubmit}>
+        <TouchableOpacity
+          style={globalStyles.primaryButton}
+          onPress={this.handleSubmit}
+        >
           <Text>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>

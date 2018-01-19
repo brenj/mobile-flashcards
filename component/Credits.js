@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { globalStyles } from '../util/styles';
+import globalStyles from '../util/styles';
 
 function Credits() {
   return (

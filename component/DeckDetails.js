@@ -3,18 +3,23 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { clearNotification, setNotification } from '../util/notifications';
+import globalStyles from '../util/styles';
 
 function DeckDetails(props) {
   const { navigation } = props;
   const { title, cardCount } = props.deck;
 
   return (
-    <View>
-      <Text>Deck details</Text>
-      <Text>{title}</Text>
-      <Text>{cardCount}</Text>
+    <View style={globalStyles.centeredContainer}>
+      <Text style={globalStyles.largeText}>{title}</Text>
+      <Text
+        style={[globalStyles.largeText, { paddingBottom: 50 }]}
+      >
+        {`${cardCount} cards`}
+      </Text>
       <TouchableOpacity
         onPress={() => navigation.navigate('NewCard', { title })}
+        style={globalStyles.primaryButton}
       >
         <Text>Add Card</Text>
       </TouchableOpacity>
@@ -24,6 +29,7 @@ function DeckDetails(props) {
           clearNotification().then(setNotification);
           navigation.navigate('Quiz', { title });
         }}
+        style={globalStyles.secondaryButton}
       >
         <Text>Start Quiz</Text>
       </TouchableOpacity>
