@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Alert,
   Text,
   TextInput,
   TouchableOpacity,
@@ -25,6 +26,13 @@ class NewCard extends React.Component {
     const { dispatch, navigation } = this.props;
     const { question, answer } = this.state;
     const { title } = navigation.state.params;
+
+    if (!question || !answer) {
+      Alert.alert(
+        'Required data missing',
+        'Please provide a question and answer before submitting.');
+      return;
+    }
 
     const newCard = { question, answer };
     addCardToDeck(title, newCard).then(() => {
