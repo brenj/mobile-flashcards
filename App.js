@@ -14,7 +14,7 @@ import NewDeck from './component/NewDeck';
 import NewCard from './component/NewCard';
 import Quiz from './component/Quiz';
 import Splash from './component/Splash';
-import { blue, white } from './util/colors';
+import { crimson } from './util/colors';
 import { setNotification } from './util/notifications';
 
 const DeckNavigator = TabNavigator({
@@ -34,6 +34,12 @@ const DeckNavigator = TabNavigator({
     },
     screen: NewDeck,
   },
+}, {
+  tabBarOptions: {
+    style: {
+      backgroundColor: crimson,
+    }
+  }
 });
 
 const AppNavigator = StackNavigator({
@@ -79,7 +85,7 @@ const AppNavigator = StackNavigator({
 }, {
   navigationOptions: {
     headerStyle: {
-      backgroundColor: '#b50c45',
+      backgroundColor: crimson,
     },
   },
 });
