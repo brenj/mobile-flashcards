@@ -29,7 +29,7 @@ const DeckNavigator = TabNavigator({
   NewDeck: {
     navigationOptions: {
       header: null,
-      tabBarIcon: () => <FontAwesome name="plus-square-o" size={30} />,
+      tabBarIcon: () => <FontAwesome name="plus-square" size={30} />,
       tabBarLabel: 'New',
     },
     screen: NewDeck,
