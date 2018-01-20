@@ -46,4 +46,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps, { receiveDecksDispatcher: receiveDecks })(DeckList);
+  mapStateToProps,
+  { receiveDecksDispatcher: receiveDecks },
+)(DeckList);
