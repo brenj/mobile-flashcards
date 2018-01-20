@@ -13,7 +13,7 @@ import { addCardToDeck } from '../util/api';
 import globalStyles from '../util/styles';
 
 const propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  addCardDispatcher: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -31,7 +31,7 @@ class NewCard extends React.Component {
   }
 
   handleSubmit = () => {
-    const { dispatch, navigation } = this.props;
+    const { addCardDispatcher, navigation } = this.props;
     const { question, answer } = this.state;
     const { title } = navigation.state.params;
 
@@ -45,7 +45,7 @@ class NewCard extends React.Component {
 
     const newCard = { question, answer };
     addCardToDeck(title, newCard).then(() => {
-      dispatch(addCard(title, newCard));
+      addCardDispatcher(title, newCard);
     });
 
     navigation.goBack();
@@ -85,4 +85,4 @@ class NewCard extends React.Component {
 
 NewCard.propTypes = propTypes;
 
-export default connect()(NewCard);
+export default connect(null, { addCardDispatcher: addCard })(NewCard);
