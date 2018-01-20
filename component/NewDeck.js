@@ -76,7 +76,7 @@ class NewDeck extends React.Component {
           style={globalStyles.primaryButton}
           onPress={this.handleSubmit}
         >
-          <Text>Submit</Text>
+          <Text style={globalStyles.buttonText}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     );

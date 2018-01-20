@@ -3,16 +3,19 @@ import { StyleSheet } from 'react-native';
 import { gray, gold } from './colors';
 
 export default StyleSheet.create({
+  buttonText: {
+    color: 'white',
+  },
   centeredContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
   },
-  mediumText: {
-    fontSize: 20,
-  },
   largeText: {
     fontSize: 30,
+  },
+  mediumText: {
+    fontSize: 20,
   },
   primaryButton: {
     alignItems: 'center',

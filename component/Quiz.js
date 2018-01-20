@@ -72,13 +72,13 @@ function Quiz(props) {
           }}
           style={globalStyles.primaryButton}
         >
-          <Text>Deck details</Text>
+          <Text style={globalStyles.buttonText}>Deck details</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => dispatch(resetQuizResults())}
           style={globalStyles.secondaryButton}
         >
-          <Text>Restart quiz</Text>
+          <Text style={globalStyles.buttonText}>Restart quiz</Text>
         </TouchableOpacity>
       </View>
     );
@@ -101,19 +101,19 @@ function Quiz(props) {
           props.navigation.navigate('Answer', { answer: card.answer });
         }}
       >
-        <Text>Show answer</Text>
+        <Text style={globalStyles.buttonText}>Show answer</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.correctButton}
         onPress={() => dispatch(recordQuizResult(1))}
       >
-        <Text>Correct</Text>
+        <Text style={globalStyles.buttonText}>Correct</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.incorrectButton}
         onPress={() => dispatch(recordQuizResult(0))}
       >
-        <Text>Incorrect</Text>
+        <Text style={globalStyles.buttonText}>Incorrect</Text>
       </TouchableOpacity>
     </View>
   );

@@ -32,7 +32,7 @@ function DeckDetails(props) {
         onPress={() => navigation.navigate('NewCard', { title })}
         style={globalStyles.primaryButton}
       >
-        <Text>Add Card</Text>
+        <Text style={globalStyles.buttonText}>Add Card</Text>
       </TouchableOpacity>
       {
         cardCount !== 0 &&
@@ -44,7 +44,7 @@ function DeckDetails(props) {
             }}
             style={globalStyles.secondaryButton}
           >
-            <Text>Start Quiz</Text>
+            <Text style={globalStyles.buttonText}>Start Quiz</Text>
           </TouchableOpacity>
       }
     </View>

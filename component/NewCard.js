@@ -76,7 +76,7 @@ class NewCard extends React.Component {
           onPress={this.handleSubmit}
           style={globalStyles.primaryButton}
         >
-          <Text>Submit</Text>
+          <Text style={globalStyles.buttonText}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     );

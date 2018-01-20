@@ -39,13 +39,13 @@ class Splash extends React.Component {
           }}
           style={globalStyles.primaryButton}
         >
-          <Text>Get started</Text>
+          <Text style={globalStyles.buttonText}>Get started</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('Credits')}
           style={globalStyles.secondaryButton}
         >
-          <Text>Credits</Text>
+          <Text style={globalStyles.buttonText}>Credits</Text>
         </TouchableOpacity>
       </Animated.View>
     );
