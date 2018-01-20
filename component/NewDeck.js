@@ -14,7 +14,7 @@ import { saveDeckTitle } from '../util/api';
 import globalStyles from '../util/styles';
 
 const propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  addDeckDispatcher: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -28,7 +28,7 @@ class NewDeck extends React.Component {
   }
 
   handleSubmit = () => {
-    const { dispatch, navigation } = this.props;
+    const { addDeckDispatcher, navigation } = this.props;
     const { title } = this.state;
 
     if (!title) {
@@ -46,7 +46,7 @@ class NewDeck extends React.Component {
     };
 
     saveDeckTitle(title).then(() => {
-      dispatch(addDeck(newDeck));
+      addDeckDispatcher(newDeck);
     });
 
     navigation.navigate('DeckDetails', { title });
@@ -85,4 +85,4 @@ class NewDeck extends React.Component {
 
 NewDeck.propTypes = propTypes;
 
-export default connect()(NewDeck);
+export default connect(null, { addDeckDispatcher: addDeck })(NewDeck);
