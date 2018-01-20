@@ -56,7 +56,10 @@ class NewCard extends React.Component {
 
   render() {
     return (
-      <KeyboardAvoidingView style={globalStyles.centeredContainer}>
+      <KeyboardAvoidingView
+        behavior='padding'
+        style={globalStyles.centeredContainer}
+      >
         <Text style={globalStyles.mediumText}>Question:</Text>
         <TextInput
           style={globalStyles.textInput}
