@@ -27,7 +27,7 @@ Install
 Code Quality
 ------------
 This code base adheres to the [Airbnb JavaScript/React/JSX Style Guide](https://github.com/airbnb/javascript)  
-Use `npm run lint` to check syntax and style.
+Use `yarn lint` to check syntax and style.
 
 Code Organization
 -----------------
