@@ -27,9 +27,9 @@ class Splash extends React.Component {
       <Animated.View
         style={[globalStyles.centeredContainer, { opacity: fade }]}
       >
-        <Image source={LOGO_FILE} />
+        <Image source={LOGO_FILE} style={{marginBottom: 25 }}/>
         <Text
-          style={[globalStyles.largeText, { paddingBottom: 50 }]}
+          style={[globalStyles.largeText, { paddingBottom: 75 }]}
         >
           Mobile Flashcards
         </Text>
@@ -39,7 +39,7 @@ class Splash extends React.Component {
           }}
           style={globalStyles.primaryButton}
         >
-          <Text>Start</Text>
+          <Text>Get started</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('Credits')}
