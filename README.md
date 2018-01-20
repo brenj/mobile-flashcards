@@ -16,8 +16,11 @@ Platforms supported:
   * Android
   * iOS
 
-![Splash](image/screenshot/splash.png)
-![NewDeck](image/screenshot/new-deck.png)
+Screenshots
+-----------
+
+[Splash](image/screenshot/splash.png)
+[New Deck](image/screenshot/new-deck.png)
 
 Attributions
 ------------
