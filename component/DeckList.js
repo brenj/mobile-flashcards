@@ -10,16 +10,16 @@ import { getDecks } from '../util/api';
 
 const propTypes = {
   decks: PropTypes.arrayOf(PropTypes.object).isRequired,
-  dispatch: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  receiveDecksDispatcher: PropTypes.func.isRequired,
 };
 
 class DeckList extends React.Component {
   componentDidMount() {
     getDecks().then(decks => (
-      this.props.dispatch(receiveDecks(JSON.parse(decks)))));
+      this.props.receiveDecksDispatcher(JSON.parse(decks))));
   }
 
   render() {
@@ -45,4 +45,5 @@ const mapStateToProps = (state) => {
   return { decks };
 };
 
-export default connect(mapStateToProps)(DeckList);
+export default connect(
+  mapStateToProps, { receiveDecksDispatcher: receiveDecks })(DeckList);
