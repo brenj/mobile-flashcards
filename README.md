@@ -1,5 +1,5 @@
-Mobile Flashcards: A Mobile App for studying flashcards
-=======================================================
+Project: A Mobile App for Studying Flashcards
+=============================================
 
 About
 -----
@@ -16,7 +16,7 @@ Requirements
 ------------
 * Node
 * Yarn package manager (https://yarnpkg.com/en/docs/install)
-* Android/iOS device with Expo or a device simulator
+* Android/iOS device with [Expo](https://expo.io/tools#client) or a device simulator
 
 Install
 -------
