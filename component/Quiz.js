@@ -40,6 +40,7 @@ const propTypes = {
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
@@ -67,9 +68,7 @@ function Quiz(props) {
           {`${correctAnswers} out of ${deck.cardCount} answered correctly`}
         </Text>
         <TouchableOpacity
-          onPress={() => {
-            props.navigation.navigate('DeckDetails', { title: deck.title });
-          }}
+          onPress={() => props.navigation.goBack()}
           style={globalStyles.primaryButton}
         >
           <Text style={globalStyles.buttonText}>Deck details</Text>
