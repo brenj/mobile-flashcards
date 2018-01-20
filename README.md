@@ -16,6 +16,9 @@ Platforms supported:
   * Android
   * iOS
 
+![Splash](image/screenshot/splash.png)
+![NewDeck](image/screenshot/new-deck.png)
+
 Attributions
 ------------
 Icon made by Graphic Resources S.L from [www.flaticon.com](www.flaticon.com)
