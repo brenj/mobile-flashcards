@@ -24,7 +24,7 @@ Requirements
 
 Install
 -------
-1. `git clone https://github.com/brenj/mobile-flashcards.git`
+1. `git clone https://github.com/brenj/mobile-flashcards.git && cd mobile-flashcards`
 2. `yarn install`
 3. `yarn start`
 
