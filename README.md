@@ -12,6 +12,10 @@ decks, then take quizzes on those decks.
 Supporting courses:
   * React Native
 
+Platforms supported:
+  * Android
+  * iOS
+
 Requirements
 ------------
 * Node
