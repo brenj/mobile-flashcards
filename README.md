@@ -19,8 +19,8 @@ Platforms supported:
 Screenshots
 -----------
 
-[Splash](image/screenshot/splash.png)
-[New Deck](image/screenshot/new-deck.png)
+* [Splash](image/screenshot/splash.png)
+* [New Deck](image/screenshot/new-deck.png)
 
 Attributions
 ------------
