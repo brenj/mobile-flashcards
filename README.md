@@ -86,7 +86,7 @@ Grading (by Udacity)
 --------------------
 
 Criteria                  |Highest Grade Possible  |Grade Recieved
---------------------------|------------------------|--------------
-Application Setup         |Meets Specifications    |
-Application Functionality |Meets Specifications    |
-Code Quality              |Meets Specifications    |
+--------------------------|------------------------|--------------------
+Application Setup         |Meets Specifications    |Meets Specifications 
+Application Functionality |Meets Specifications    |Meets Specifications 
+Code Quality              |Meets Specifications    |Meets Specifications 
