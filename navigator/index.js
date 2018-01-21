@@ -51,7 +51,7 @@ const DeckNavigator = TabNavigator({
   },
 });
 
-export default AppNavigator = StackNavigator({
+export default StackNavigator({
   Home: {
     navigationOptions: {
       header: null,
