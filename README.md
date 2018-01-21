@@ -25,7 +25,6 @@ Screenshots
 Attributions
 ------------
 Icon made by Graphic Resources S.L from [www.flaticon.com](www.flaticon.com)
-
 For more details see: [image/license/license.pdf](image/license/license.pdf)
 
 Requirements
